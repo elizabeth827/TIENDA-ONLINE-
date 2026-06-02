@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elizabeth Poquiviqui Jimenez | Maquillaje Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rosa-palido: #FFF0F2;
+            --nude-premium: #F5E6E8;
+            --gris-carbon: #1A1A1A;
+            --oro: #D4AF37;
+            --oro-rosa: #E0A96D;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAFAFA;
+            color: var(--gris-carbon);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-gold { background-color: var(--oro); }
+        .text-gold { color: var(--oro); }
+        .border-gold { border-color: var(--oro); }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.85)), url('https://lh3.googleusercontent.com/u/0/d/10PDNdwJ4-OAUUc1scVjgxi_vEMIE5ue8');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(183, 110, 121, 0.15);
+        }
+
+        /* Estilos del Espejo de Reserva (Carrito) */
+        .cart-sidebar {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cart-sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://lh3.googleusercontent.com/u/0/d/10PDNdwJ4-OAUUc1scVjgxi_vEMIE5ue8" alt="Logo Elizabeth Poquiviqui" class="max-h-[45px] w-auto rounded border border-gray-100" onerror="this.src='https://via.placeholder.com/150x50?text=Logo+EPJ'">
+                <div class="text-sm md:text-base font-bold tracking-widest text-gold uppercase hidden sm:block">Elizabeth Professional Makeup</div>
+            </div>
+            <div class="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-widest">
+                <a href="#inicio" class="hover:text-gold transition-colors duration-300">Inicio</a>
+                <a href="#catalogo" class="hover:text-gold transition-colors duration-300">Catálogo de Servicios</a>
+                <a href="#acerca" class="hover:text-gold transition-colors duration-300">Sobre Mí</a>
+                <a href="#ayuda" class="hover:text-gold transition-colors duration-300">Ayuda</a>
+            </div>
+            
+            <!-- Botón del Espejo de Reserva -->
+            <button onclick="toggleCart()" class="relative bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-yellow-600 hover:text-white transition duration-300 flex items-center gap-2">
+                <span>Espejo de Reserva</span>
+                <span id="cart-badge" class="bg-amber-500 text-white font-bold px-2 py-0.5 rounded-full text-[10px]">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="h-screen flex items-center justify-center text-center text-white hero-gradient px-4">
+        <div class="max-w-4xl">
+            <div class="mb-6 inline-block p-1 border border-amber-500/50 rounded-full bg-white/10 backdrop-blur-md">
+                 <img src="https://lh3.googleusercontent.com/u/0/d/10PDNdwJ4-OAUUc1scVjgxi_vEMIE5ue8" alt="Icono Portada" class="w-24 h-24 rounded-full object-cover shadow-2xl">
+            </div>
+            <h1 class="text-4xl md:text-7xl lg:text-8xl mb-6 font-bold tracking-tight drop-shadow-2xl">Elizabeth Poquiviqui Jimenez</h1>
+            <p class="text-md md:text-xl mb-10 font-light italic tracking-widest text-pink-100">Maquillaje Profesional que Resalta tu Esencia en Santa Cruz</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#catalogo" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-black font-bold px-10 py-4 rounded-full shadow-lg transition-all duration-300 uppercase tracking-widest text-xs">Ver Catálogo</a>
+                <button onclick="toggleCart()" class="w-full sm:w-auto bg-white/10 hover:bg-white hover:text-black border border-white/50 px-10 py-4 rounded-full font-bold transition-all duration-300 uppercase tracking-widest text-xs">Mi Reserva</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Servicios Interactivos -->
+    <section id="catalogo" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl mb-4 font-bold">Catálogo de Especialidades</h2>
+                <div class="h-0.5 w-24 bg-amber-500 mx-auto mb-4"></div>
+                <p class="text-gray-500 uppercase tracking-widest text-xs font-semibold">Reserva tu tratamiento ideal con productos premium</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- SERV001 -->
+                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV001</span>
+                            <span class="text-xl font-bold text-amber-600">120 Bs.</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Maquillaje Sencillo</h3>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Maquillaje ligero, natural e ideal para el día a día o eventos casuales.</p>
+                    </div>
+                    <button onclick="addToCart('SERV001', 'Maquillaje Sencillo', 120)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                        Añadir a Reserva
+                    </button>
+                </div>
+
+                <!-- SERV002 -->
+                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV002</span>
+                            <span class="text-xl font-bold text-amber-600">200 Bs.</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Maquillaje Social</h3>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Perfecto para invitadas a bodas, graduaciones, quinceañeras y eventos especiales. Incluye pestañas.</p>
+                    </div>
+                    <button onclick="addToCart('SERV002', 'Maquillaje Social', 200)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                        Añadir a Reserva
+                    </button>
+                </div>
+
+                <!-- SERV003 -->
+                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-black uppercase bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Ref: SERV003</span>
+                            <span class="text-xl font-bold text-amber-600">350 Bs.</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Maquillaje Blindado</h3>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Técnica de alta cobertura y máxima durabilidad, totalmente a prueba de agua, lágrimas y sudor.</p>
+                    </div>
+                    <button onclick="addToCart('SERV003', 'Maquillaje Blindado', 350)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                        Añadir a Reserva
+                    </button>
+                </div>
+
+                <!-- SERV004 -->
+                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV004</span>
+                            <span class="text-xl font-bold text-amber-600">280 Bs.</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Maquillaje Full Color</h3>
+                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Estilo artístico y glamuroso con combinaciones cromáticas vibrantes y técnicas avanzadas.</p>
+                    </div>
+                    <button onclick="addToCart('SERV004', 'Maquillaje Full Color', 280)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                        Añadir a Reserva
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="acerca" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2 relative">
+                <div class="absolute -top-4 -left-4 w-full h-full border-2 border-gold rounded-3xl -z-10 translate-x-2 translate-y-2 opacity-30"></div>
+                <img src="https://lh3.googleusercontent.com/u/0/d/10PDNdwJ4-OAUUc1scVjgxi_vEMIE5ue8" alt="Elizabeth Portafolio" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl md:text-5xl mb-6 font-bold">El Arte del Empoderamiento</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Soy <strong>Elizabeth Poquiviqui Jimenez</strong>. Para mí, cada rostro es un lienzo único donde la técnica y la creatividad se fusionan para resaltar la versión más elegante y radiante de ti misma.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Mi especialización en <strong>Maquillaje Blindado</strong> nace de comprender los climas tropicales de Santa Cruz de la Sierra, diseñando técnicas herméticas que garantizan un acabado impoluto durante horas, sin importar la humedad.
+                </p>
+                <div class="flex items-center gap-8">
+                    <div class="text-center">
+                        <span class="block text-4xl font-bold text-amber-600">100%</span>
+                        <span class="text-[10px] uppercase font-semibold text-gray-400 tracking-widest">Resistente</span>
+                    </div>
+                    <div class="h-12 w-px bg-stone-200"></div>
+                    <div class="text-center">
+                        <span class="block text-4xl font-bold text-amber-600">Premium</span>
+                        <span class="text-[10px] uppercase font-semibold text-gray-400 tracking-widest">Línea de Productos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayuda / Preguntas Frecuentes -->
+    <section id="ayuda" class="py-20 bg-stone-50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl mb-12 font-bold">Preguntas Frecuentes</h2>
+            <div class="space-y-4 text-left">
+                <details class="bg-white p-6 rounded-2xl shadow-sm group border border-stone-200">
+                    <summary class="font-bold cursor-pointer list-none flex justify-between items-center text-lg uppercase tracking-tight">
+                        ¿Cómo funciona la técnica de maquillaje blindado?
+                        <span class="text-gold group-open:rotate-180 transition-transform font-bold text-sm">▼</span>
+                    </summary>
+                    <p class="mt-4 text-stone-600 leading-relaxed border-l-4 border-amber-500 pl-4">Consiste en capas de sellado molecular con productos de alta tecnología y fijadores de grado profesional que bloquean el agua, sudor y transferencia por contacto de forma segura y confortable.</p>
+                </details>
+                <details class="bg-white p-6 rounded-2xl shadow-sm group border border-stone-200">
+                    <summary class="font-bold cursor-pointer list-none flex justify-between items-center text-lg uppercase tracking-tight">
+                        ¿Atiendes bajo citas previas los fines de semana?
+                        <span class="text-gold group-open:rotate-180 transition-transform font-bold text-sm">▼</span>
+                    </summary>
+                    <p class="mt-4 text-stone-600 leading-relaxed border-l-4 border-amber-500 pl-4">Sí, los fines de semana suelen reservarse con alta anticipación. Te sugerimos añadir tus servicios al Espejo de Reserva y enviar tu consulta hoy mismo.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espejo de Reserva Sidebar (Carrito de Compras) -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/50 z-40 hidden transition-opacity duration-300"></div>
+    
+    <div id="cart-sidebar" class="cart-sidebar fixed right-0 top-0 h-screen w-full sm:w-[480px] bg-white z-50 shadow-2xl flex flex-col justify-between border-l border-pink-100">
+        <!-- Header -->
+        <div class="p-6 border-b border-stone-100 flex justify-between items-center bg-stone-50">
+            <div>
+                <h3 class="text-xl font-bold tracking-wider">Espejo de Reserva</h3>
+                <p class="text-xs text-stone-400">Tus servicios seleccionados para Santa Cruz</p>
+            </div>
+            <button onclick="toggleCart()" class="text-stone-400 hover:text-black text-2xl font-semibold">&times;</button>
+        </div>
+
+        <!-- Lista de Reserva -->
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Cargado dinámicamente -->
+            <div class="text-center py-12 text-stone-400 italic">
+                Aún no has agregado especialidades a tu reserva.
+            </div>
+        </div>
+
+        <!-- Footer del Carrito -->
+        <div class="p-6 border-t border-stone-100 bg-stone-50 space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold">
+                <span>Total Estimado:</span>
+                <span id="cart-total" class="text-amber-600">0 Bs.</span>
+            </div>
+            
+            <p class="text-[10px] text-stone-500 uppercase tracking-widest text-center">
+                * Confirmaremos la hora exacta de tu cita por WhatsApp.
+            </p>
+
+            <button onclick="confirmOrder()" class="w-full bg-amber-500 text-black py-4 rounded-xl font-bold hover:bg-amber-600 transition duration-300 uppercase tracking-widest text-xs flex justify-center items-center gap-2 shadow-lg">
+                <span>Confirmar Reserva</span>
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.6-27.5-16.4-14.7-27.5-32.8-30.7-38.3-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification Customizado -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 bg-stone-900 text-white text-xs px-6 py-4 rounded-xl shadow-xl border border-stone-800 transition-all duration-300 transform translate-y-24 opacity-0 flex items-center gap-3">
+        <span class="text-amber-500">✨</span>
+        <span id="toast-message">Servicio agregado al Espejo de Reserva</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#111] text-white py-16 text-center border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <img src="https://lh3.googleusercontent.com/u/0/d/10PDNdwJ4-OAUUc1scVjgxi_vEMIE5ue8" alt="Logo Elizabeth Footer" class="max-h-[50px] mx-auto mb-6 hover:scale-105 transition cursor-pointer" onerror="this.src='https://via.placeholder.com/150x50?text=Logo+EPJ'">
+            <h3 class="text-amber-500 font-bold text-2xl mb-2 tracking-[0.2em] uppercase">Elizabeth Professional Makeup Artist</h3>
+            <p class="text-stone-400 text-xs mb-8 italic tracking-widest">Santa Cruz de la Sierra · Bolivia</p>
+            <p class="text-[10px] text-stone-500 uppercase tracking-widest opacity-50">© 2026 Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Manejo del estado del carrito (Espejo de Reserva)
+        let cart = [];
+
+        // Inicializar carrito desde sessionStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedCart = sessionStorage.getItem('elizabeth_makeup_cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartUI();
+            }
+        });
+
+        function saveCart() {
+            sessionStorage.setItem('elizabeth_makeup_cart', JSON.stringify(cart));
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            
+            sidebar.classList.toggle('open');
+            if (sidebar.classList.contains('open')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            } else {
+                overlay.classList.remove('opacity-100');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        function openCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            
+            if (!sidebar.classList.contains('open')) {
+                sidebar.classList.add('open');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            }
+        }
+
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+            
+            saveCart();
+            updateCartUI();
+            showToast(`Añadido: ${name}`);
+            openCart(); // Abre automáticamente el panel lateral de reservas al seleccionar un servicio
+        }
+
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                saveCart();
+                updateCartUI();
+            }
+        }
+
+        function removeItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            saveCart();
+            updateCartUI();
+        }
+
+        function calculateTotal() {
+            return cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+        }
+
+        function updateCartUI() {
+            const itemsContainer = document.getElementById('cart-items');
+            const badge = document.getElementById('cart-badge');
+            const totalContainer = document.getElementById('cart-total');
+            
+            // Total items count
+            const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+            badge.textContent = totalCount;
+            
+            // Total price
+            const total = calculateTotal();
+            totalContainer.textContent = `${total} Bs.`;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="text-center py-24 text-stone-400 italic">
+                        <span class="block text-4xl mb-3">💄</span>
+                        Aún no has agregado especialidades a tu reserva.
+                    </div>
+                `;
+                return;
+            }
+
+            itemsContainer.innerHTML = cart.map(item => `
+                <div class="flex justify-between items-center p-4 bg-stone-50 rounded-2xl border border-stone-200/60 shadow-sm">
+                    <div class="flex-1 pr-3">
+                        <h4 class="font-bold text-sm text-stone-900">${item.name}</h4>
+                        <span class="text-xs text-amber-600 font-semibold">${item.price} Bs.</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="updateQuantity('${item.id}', -1)" class="w-8 h-8 rounded-full bg-stone-200 hover:bg-amber-500 hover:text-black transition flex items-center justify-center font-bold text-xs">-</button>
+                        <span class="text-sm font-bold w-4 text-center">${item.quantity}</span>
+                        <button onclick="updateQuantity('${item.id}', 1)" class="w-8 h-8 rounded-full bg-stone-200 hover:bg-amber-500 hover:text-black transition flex items-center justify-center font-bold text-xs">+</button>
+                        <button onclick="removeItem('${item.id}')" class="text-rose-500 hover:text-rose-700 ml-2 font-bold text-sm">&times;</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function confirmOrder() {
+            if (cart.length === 0) {
+                showToast("Por favor, selecciona al menos un servicio antes de reservar.");
+                return;
+            }
+
+            const phone = "59163485158";
+            
+            // Construcción estructurada del mensaje en WhatsApp
+            let message = "💄 *NUEVA RESERVA - Elizabeth Professional Makeup Artist*\n";
+            message += "--------------------------------------------------\n";
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                message += `${item.quantity} x ${item.name} - ${subtotal} Bs.\n`;
+            });
+            message += "--------------------------------------------------\n";
+            message += "📅 *Por favor, confírmame la fecha y hora disponible para mi cita.*\n";
+            message += `💰 *TOTAL ESTIMADO:* ${calculateTotal()} Bs.`;
+
+            // Uso estricto de encodeURIComponent
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
