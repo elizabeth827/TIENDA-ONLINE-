@@ -115,75 +115,95 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- SERV001 -->
-                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden service-card border border-stone-200/60 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="overflow-hidden rounded-2xl mb-4 h-48 bg-stone-100">
-                            <img src="https://lh3.googleusercontent.com/u/0/d/1Lo1UHqRxr2rOWxWAgkqq1ZL2LmAXWa9O" alt="Maquillaje Sencillo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x300/F5E6E8/D4AF37?text=Maquillaje+Sencillo'">
+                        <div class="relative h-56 overflow-hidden bg-stone-100">
+                            <!-- Imagen de Maquillaje Sencillo cargada desde Google Drive con alternativa limpia de Unsplash -->
+                            <img src="https://lh3.googleusercontent.com/d/1Lo1UHqRxr2rOWxWAgkqq1ZL2LmAXWa9O" alt="Maquillaje Sencillo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop'">
                         </div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV001</span>
-                            <span class="text-xl font-bold text-amber-600">120 Bs.</span>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV001</span>
+                                <span class="text-xl font-bold text-amber-600">120 Bs.</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Maquillaje Sencillo</h3>
+                            <p class="text-sm text-stone-500 leading-relaxed">Maquillaje ligero, natural e ideal para el día a día o eventos casuales.</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Maquillaje Sencillo</h3>
-                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Maquillaje ligero, natural e ideal para el día a día o eventos casuales.</p>
                     </div>
-                    <button onclick="addToCart('SERV001', 'Maquillaje Sencillo', 120)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
-                        Añadir a Reserva
-                    </button>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('SERV001', 'Maquillaje Sencillo', 120)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                            Añadir a Reserva
+                        </button>
+                    </div>
                 </div>
 
                 <!-- SERV002 -->
-                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden service-card border border-stone-200/60 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="overflow-hidden rounded-2xl mb-4 h-48 bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop" alt="Maquillaje Social" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x300/F5E6E8/D4AF37?text=Maquillaje+Social'">
+                        <div class="relative h-56 overflow-hidden bg-stone-100">
+                            <!-- Imagen de Maquillaje Social de gala y eventos -->
+                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop" alt="Maquillaje Social" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400?text=Maquillaje+Social'">
                         </div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV002</span>
-                            <span class="text-xl font-bold text-amber-600">200 Bs.</span>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV002</span>
+                                <span class="text-xl font-bold text-amber-600">200 Bs.</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Maquillaje Social</h3>
+                            <p class="text-sm text-stone-500 leading-relaxed">Perfecto para invitadas a bodas, graduaciones, quinceañeras y eventos especiales. Incluye pestañas.</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Maquillaje Social</h3>
-                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Perfecto para invitadas a bodas, graduaciones, quinceañeras y eventos especiales. Incluye pestañas.</p>
                     </div>
-                    <button onclick="addToCart('SERV002', 'Maquillaje Social', 200)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
-                        Añadir a Reserva
-                    </button>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('SERV002', 'Maquillaje Social', 200)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                            Añadir a Reserva
+                        </button>
+                    </div>
                 </div>
 
                 <!-- SERV003 -->
-                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden service-card border border-stone-200/60 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="overflow-hidden rounded-2xl mb-4 h-48 bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" alt="Maquillaje Blindado" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x300/F5E6E8/D4AF37?text=Maquillaje+Blindado'">
+                        <div class="relative h-56 overflow-hidden bg-stone-100">
+                            <!-- Imagen de Maquillaje Blindado con acabado de estudio impecable -->
+                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600&auto=format&fit=crop" alt="Maquillaje Blindado" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400?text=Maquillaje+Blindado'">
                         </div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-black uppercase bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Ref: SERV003</span>
-                            <span class="text-xl font-bold text-amber-600">350 Bs.</span>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-black uppercase bg-amber-50 text-amber-700 px-3 py-1 rounded-full">Ref: SERV003</span>
+                                <span class="text-xl font-bold text-amber-600">350 Bs.</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Maquillaje Blindado</h3>
+                            <p class="text-sm text-stone-500 leading-relaxed">Técnica de alta cobertura y máxima durabilidad, totalmente a prueba de agua, lágrimas y sudor.</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Maquillaje Blindado</h3>
-                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Técnica de alta cobertura y máxima durabilidad, totalmente a prueba de agua, lágrimas y sudor.</p>
                     </div>
-                    <button onclick="addToCart('SERV003', 'Maquillaje Blindado', 350)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
-                        Añadir a Reserva
-                    </button>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('SERV003', 'Maquillaje Blindado', 350)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                            Añadir a Reserva
+                        </button>
+                    </div>
                 </div>
 
                 <!-- SERV004 -->
-                <div class="bg-white rounded-3xl p-6 service-card border border-stone-200/60 flex flex-col justify-between">
+                <div class="bg-white rounded-3xl overflow-hidden service-card border border-stone-200/60 flex flex-col justify-between shadow-sm">
                     <div>
-                        <div class="overflow-hidden rounded-2xl mb-4 h-48 bg-stone-100">
-                            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600&auto=format&fit=crop" alt="Maquillaje Full Color" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x300/F5E6E8/D4AF37?text=Maquillaje+Full+Color'">
+                        <div class="relative h-56 overflow-hidden bg-stone-100">
+                            <!-- Imagen de Maquillaje Full Color artística y audaz -->
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop" alt="Maquillaje Full Color" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400?text=Maquillaje+Full+Color'">
                         </div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV004</span>
-                            <span class="text-xl font-bold text-amber-600">280 Bs.</span>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-black uppercase bg-stone-100 text-stone-600 px-3 py-1 rounded-full">Ref: SERV004</span>
+                                <span class="text-xl font-bold text-amber-600">280 Bs.</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Maquillaje Full Color</h3>
+                            <p class="text-sm text-stone-500 leading-relaxed">Estilo artístico y glamuroso con combinaciones cromáticas vibrantes y técnicas avanzadas.</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Maquillaje Full Color</h3>
-                        <p class="text-sm text-stone-500 leading-relaxed mb-6">Estilo artístico y glamuroso con combinaciones cromáticas vibrantes y técnicas avanzadas.</p>
                     </div>
-                    <button onclick="addToCart('SERV004', 'Maquillaje Full Color', 280)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
-                        Añadir a Reserva
-                    </button>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('SERV004', 'Maquillaje Full Color', 280)" class="w-full bg-stone-900 text-white text-xs font-bold py-3 px-4 rounded-xl hover:bg-amber-500 hover:text-black transition duration-300 uppercase tracking-wider">
+                            Añadir a Reserva
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
